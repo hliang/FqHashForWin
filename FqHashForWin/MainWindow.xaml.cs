@@ -393,7 +393,12 @@ namespace FqHashForWin
 
                 // count sequence
                 // int x = (int) dt.Rows[i][3];
-                if (countSeq == true)
+                var allowedFastqExtensions = new[] {
+                            ".fastq", ".fastq.gz", ".fastq.bz", ".fastq.bz2",
+                            ".fq", ".fq.gz", ".fq.bz", ".fq.bz2"
+                        };
+                bool isFastq = allowedFastqExtensions.Any((dt.Rows[i]["fileName"] as string).ToLower().EndsWith);
+                if (countSeq == true && isFastq && (dt.Rows[i]["totalSeq"] == DBNull.Value || dt.Rows[i].Field<int>(3) < 0 ))
                 {
                     int lines = -1;
                     try
@@ -521,6 +526,7 @@ namespace FqHashForWin
                         newrow["fullPath"] = filepath;
                         newrow["fileName"] = System.IO.Path.GetFileName(filepath);
                         newrow["fileSize"] = new FileInfo(filepath).Length;
+                        newrow["match"] = false;
                         dt.Rows.Add(newrow);
                     }
                 }
