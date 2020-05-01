@@ -12,7 +12,11 @@ A tool to generate MD5 checksum for sequencing data and verify integrity. It can
 Download the latest version from the [release page](https://github.com/hliang/FqHashForWin/releases) to your computer, and simply double-click it.
 
 ## Using FqHashForWin
-1. Add files/folder. If a folder is chosen, all sequence files inside will be added to the table.
+1. Add files/folders by one of the ways below:
+    + Simply drag and drop your files/folders in the window.
+    + If a folder is chosen, all sequence files inside will be added to the table.
 2. (Optional) Check "Count Sequences" if needed.
 3. Click "Run" to start processing.
 4. If you have the original checksum, enter it in the "Verify Checksum" column to verify.
+
+Note: if `Total Seq` = -1, that means there is an error processing the sequence file, probably because the file is corrupted for malformatted.
