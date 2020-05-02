@@ -537,6 +537,7 @@ namespace FqHashForWin
                     newrow["fullPath"] = filepath;
                     newrow["fileName"] = System.IO.Path.GetFileName(filepath);
                     newrow["fileSize"] = new FileInfo(filepath).Length;
+                    newrow["match"] = false;
                     dt.Rows.Add(newrow);
                 }
             }
