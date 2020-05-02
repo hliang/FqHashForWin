@@ -15,12 +15,30 @@
             <Button x:Name="btnRun" Content= "▶️ Run"  VerticalAlignment="Center"  Click="btnRun_Click" Padding="5,5,5,5" Width="120" Margin="0,0,30,0"/>
         </StackPanel>
         <DataGrid x:Name="myDataGrid" Margin="10,65,10,37" FontFamily="Consolas" IsReadOnly="False" CanUserAddRows="False" SelectionUnit="Cell"/>
-        <StatusBar VerticalAlignment="Bottom">
-            <StatusBarItem DockPanel.Dock="Right" Margin="0,0,10,0">
-                <Label x:Name="versionLabel" Loaded="versionLabel_Loaded" MouseUp="versionLabel_MouseUp">version</Label>
-            </StatusBarItem>
+        <StatusBar VerticalAlignment="Bottom" DockPanel.Dock="Bottom">
+            <StatusBar.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="110" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="80" />
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                </ItemsPanelTemplate>
+            </StatusBar.ItemsPanel>
             <StatusBarItem Margin="10,0,0,0">
                 <Label x:Name="statusLabel1">Select files/folders to calculate MD5 hash (or drag-and-drop them onto this window)</Label>
+            </StatusBarItem>
+            <Separator Grid.Column="1" />
+            <StatusBarItem Grid.Column="2">
+                <ProgressBar x:Name="sbProgress" Width="100" Height="16" Value="0"/>
+            </StatusBarItem>
+            <Separator Grid.Column="3" />
+            <StatusBarItem Grid.Column="4">
+                <Label x:Name="versionLabel" Loaded="versionLabel_Loaded" MouseUp="versionLabel_MouseUp">version</Label>
             </StatusBarItem>
         </StatusBar>
     </Grid>

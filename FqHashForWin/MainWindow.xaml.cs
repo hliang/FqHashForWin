@@ -374,7 +374,7 @@ namespace FqHashForWin
                     // show status
                     Dispatcher.Invoke(() =>
                     {
-                        statusLabel1.Content = "Processing ... " + filepath;
+                        statusLabel1.Content = "Calculating Hash ... " + filepath;
                     });
 
 
@@ -400,6 +400,11 @@ namespace FqHashForWin
                 bool isFastq = allowedFastqExtensions.Any((dt.Rows[i]["fileName"] as string).ToLower().EndsWith);
                 if (countSeq == true && isFastq && (dt.Rows[i]["totalSeq"] == DBNull.Value || dt.Rows[i].Field<int>(3) < 0 ))
                 {
+                    // show status
+                    Dispatcher.Invoke(() =>
+                    {
+                        statusLabel1.Content = "Counting sequences ... " + filepath;
+                    });
                     int lines = -1;
                     try
                     {
