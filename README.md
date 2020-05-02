@@ -9,7 +9,7 @@ A tool to generate MD5 checksum for sequencing data and verify integrity. It can
 ## Installation
 <em>Requirement: Windows 7/8/10</em>
 
-Download the latest version from the [release page](https://github.com/hliang/FqHashForWin/releases) to your computer, and simply double-click it.
+Download the latest version (FqHashForWin.zip) from the [release page](https://github.com/hliang/FqHashForWin/releases) to your computer, unzip, and double-click the exe file.
 
 ## Using FqHashForWin
 1. Add files/folders by one of the ways below:
