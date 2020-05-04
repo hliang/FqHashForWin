@@ -451,6 +451,7 @@ namespace FqHashForWin
             if (e.Error != null)
             {
                 statusLabel1.Content = "Error";
+                MessageBox.Show("There was an error! " + e.Error.ToString());
             }
             else
             {
